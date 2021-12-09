@@ -15,7 +15,6 @@ import "./ogp"
 
 
 
-
 const App = () => {
   // itemsのuseStateを作る
   // 初期状態は空のオブジェクト
@@ -37,6 +36,16 @@ const App = () => {
     setTotalItemCount(totalItemCount);
   }
 
+  onRemoveClick = (index) => {
+    let array = this.state.items;
+    array.splice(index, 1);
+    this.setState({
+      items: array
+    });
+  }
+
+
+
   // クリック時にitems配列に新しいitemを作る処理
   const handleAddButtonClick = () => {
     // 作られるitemの定義
@@ -51,6 +60,7 @@ const App = () => {
 
     // useStateのitemsに反映
     setItems(newItems);
+
 
     // 入力値を空に
     setInputValue("");
@@ -103,7 +113,7 @@ const App = () => {
         <h2>買い物リスト</h2>
         <div className="add-item-box">
           <input value={inputValue}
-            onChange={(event) => setInputValue(event.target.value)} className="add-item-input" placeholder="買うものを入れてね" />
+            onChange={(event) => setInputValue(event.target.value)} className="add-item-input" placeholder="買うものを" />
           <FontAwesomeIcon icon={faPlus} onClick={() => handleAddButtonClick()} />
         </div>
 
@@ -122,6 +132,11 @@ const App = () => {
                     <span>{item.itemName}</span>
                   </>
                 )}
+
+                <li>
+                  <a className="close-button" onClick={()
+                    => this.props.onRemoveClick()}></a>
+                </li>
               </div>
 
               <div className='quantity'>
