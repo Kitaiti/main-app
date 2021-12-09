@@ -1,0 +1,137 @@
+* {
+  font-size: 36px;
+}
+
+body {
+  color: white;
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.App {
+  font-family: sans-serif;
+  text-align: center;
+}
+
+.app-background {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  margin: auto;
+  min-height: 100vh;
+}
+
+.main-container {
+  background-color: #ec645b;
+  border-radius: 5px;
+  box-shadow: 10px 10px 26px 0 rgba(0, 0, 0, 0.35);
+  height: min-content;
+  padding: 20px;
+  width: 500px;
+}
+
+.title {
+  text-align: center;
+}
+
+.add-item-box {
+  align-items: center;
+  background: #fbc1bb;
+  border-radius: 10px;
+  color: #ec645b;
+  display: flex;
+  margin-bottom: 1em;
+  margin-top: 1em;
+  padding: 5px;
+}
+
+.add-item-box svg {
+  margin: 5px;
+}
+
+.add-item-input {
+  background: transparent;
+  border: none;
+  box-sizing: border-box;
+  color: #aa2b22;
+  height: 40px;
+  width: 100%;
+}
+
+input::placeholder {
+  color: #ec645b;
+  font-size: 30px;
+}
+input:focus {
+  outline: 0;
+}
+
+.item-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.item-container {
+  align-items: center;
+  border-bottom: 1px #fbc1bb solid;
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 0 20px 0;
+}
+
+.item-name {
+  cursor: pointer;
+}
+
+.item-name svg {
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.item-action-buttons {
+  /* width: 30%; */
+  display: flex;
+  justify-content: space-between;
+}
+
+.remove-button {
+  background-color: red;
+  color: white;
+}
+
+.total {
+  float: right;
+  padding: 10px;
+}
+
+.quantity {
+  align-items: center;
+  background: white;
+  border: 1px solid #ec645b;
+  border-radius: 50px;
+  color: #ec645b;
+  display: flex;
+  font-size: 12px;
+  justify-content: space-between;
+  min-width: 70px;
+}
+
+button {
+  background: transparent;
+  border: none;
+  color: #ec645b;
+  margin: 3px;
+}
+button:focus {
+  outline: 0;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+.completed {
+  text-decoration: line-through;
+}

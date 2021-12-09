@@ -1,0 +1,1 @@
+const url = "https://item.rakuten.co.jp/superdeal/11118kins40w20211101/?s-id=top_normal_histreco_bh"
