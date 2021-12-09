@@ -103,7 +103,7 @@ const App = () => {
         <h2>買い物リスト</h2>
         <div className="add-item-box">
           <input value={inputValue}
-            onChange={(event) => setInputValue(event.target.value)} className="add-item-input" placeholder="買うものを" />
+            onChange={(event) => setInputValue(event.target.value)} className="add-item-input" placeholder="買うものを入れてね" />
           <FontAwesomeIcon icon={faPlus} onClick={() => handleAddButtonClick()} />
         </div>
 
