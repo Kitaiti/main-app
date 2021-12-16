@@ -24,8 +24,8 @@ body {
 }
 
 .main-container {
-  background-color: #ec645b;
-  border-radius: 5px;
+  background-color: #e94a3f;
+  border-radius: 20px;
   box-shadow: 10px 10px 26px 0 rgba(0, 0, 0, 0.35);
   height: min-content;
   padding: 20px;
@@ -71,6 +71,7 @@ input:focus {
 .item-list {
   display: flex;
   flex-direction: column;
+  overflow-x: scroll;
 }
 
 .item-container {
@@ -134,4 +135,17 @@ button:hover {
 
 .completed {
   text-decoration: line-through;
+}
+
+.btn {
+  display: inline-block;
+  margin-top: 10px;
+}
+
+.deletebtn {
+  background-color: #fff;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 1em;
 }
