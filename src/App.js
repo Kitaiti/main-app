@@ -26,15 +26,26 @@ const App = () => {
   // 初期値は０
   const [totalItemCount, setTotalItemCount] = useState(0);
 
+
+
   const calculateTotal = () => {
     const totalItemCount = items.reduce((total, item) => {
       return total + item.quantity;
     }, 0);
 
+    console.log(totalItemCount);
+
     setTotalItemCount(totalItemCount);
   }
 
+  const deleteTotal = () => {
+    const totalItemCount = items.reduce((total, item) => {
+      return total + item.quantity;
+    }, 0);
 
+    console.log(totalItemCount);
+
+  }
 
   // クリック時にitems配列に新しいitemを作る処理
   const handleAddButtonClick = () => {
@@ -56,8 +67,8 @@ const App = () => {
 
     calculateTotal();
 
-    // OGP
   }
+
 
   // done切り替え
   const toggleComplete = (index) => {
@@ -68,13 +79,20 @@ const App = () => {
     setItems(newItems)
   }
 
+  // 総量を削除
+
 
   // 購入済みを削除
-  const deleteTodo = (index) => {
+  const deleteTodo = (i) => {
     const newItems = [...items]
-    const res = newItems.filter(({ isSelected }) => !isSelected)
-    setItems(res)
+    const res = newItems.filter(({ isSelected }) => !isSelected);
+    setItems(res);
+
+    deleteTotal();
+
   }
+
+
 
   const handleQuantityIncrease = (index) => {
     // itemsを展開した配列、newItemsを作る
@@ -84,6 +102,7 @@ const App = () => {
     setItems(newItems);
     calculateTotal();
   }
+
 
   const handleQuantityDecrease = (index) => {
     // itemsを展開した配列、newItemsを作る
@@ -103,7 +122,7 @@ const App = () => {
         <h2>買い物リスト</h2>
         <div className="add-item-box">
           <input value={inputValue}
-            onChange={(event) => setInputValue(event.target.value)} className="add-item-input" placeholder="何買う？" />
+            onChange={(event) => setInputValue(event.target.value)} className="add-item-input" placeholder="買うもの" />
           <FontAwesomeIcon icon={faPlus} onClick={() => handleAddButtonClick()} />
         </div>
 
