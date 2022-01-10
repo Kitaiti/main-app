@@ -14,6 +14,10 @@ body {
   text-align: center;
 }
 
+.root {
+  background-color: blue;
+}
+
 .app-background {
   align-items: center;
   display: flex;

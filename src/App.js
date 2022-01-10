@@ -38,15 +38,6 @@ const App = () => {
     setTotalItemCount(totalItemCount);
   }
 
-  const deleteTotal = () => {
-    const totalItemCount = items.reduce((total, item) => {
-      return total + item.quantity;
-    }, 0);
-
-    console.log(totalItemCount);
-
-  }
-
   // クリック時にitems配列に新しいitemを作る処理
   const handleAddButtonClick = () => {
     // 作られるitemの定義
@@ -87,9 +78,21 @@ const App = () => {
     const newItems = [...items]
     const res = newItems.filter(({ isSelected }) => !isSelected);
     setItems(res);
+    console.log(res)
 
-    deleteTotal();
+    const comp = newItems.filter(({ isSelected }) => isSelected);
+    console.log(comp, comp.length);
 
+    let compItem = totalItemCount;
+    console.log(compItem);
+
+    for (let i = 0; i < comp.length; i++) {
+      let qua = comp[i].quantity;
+      console.log(qua);
+      compItem = compItem - qua;
+      console.log(compItem);
+      setTotalItemCount(compItem);
+    }
   }
 
 
