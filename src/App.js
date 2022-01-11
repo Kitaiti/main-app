@@ -26,7 +26,32 @@ const App = () => {
   // 初期値は０
   const [totalItemCount, setTotalItemCount] = useState(0);
 
+  const [PriceCount, setPriceCount] = useState(0);
 
+  window.document.onkeydown = function (event) {
+    if (event.key === 'Enter') {
+      handleAddButtonClick();
+    } else if (event.key === 'Tab') {
+      deleteTodo();
+    } else if (event.key === 'LightShift') {
+      handleQuantityIncrease();
+    }
+  }
+
+  const getprice = () => {
+
+  }
+
+  const calculatePrice = () => {
+    const pricearray = document.querySelectorAll("#price");
+    console.log(pricearray);
+    for (let i = 0; i < pricearray.length; i++) {
+      const Pricecount = pricearray[i].value;
+      const Pricetotal = parseInt(Pricecount, 10) + PriceCount;
+      console.log(PriceCount, Pricecount);
+      setPriceCount(Pricetotal);
+    }
+  }
 
   const calculateTotal = () => {
     const totalItemCount = items.reduce((total, item) => {
@@ -93,6 +118,7 @@ const App = () => {
       console.log(compItem);
       setTotalItemCount(compItem);
     }
+
   }
 
 
@@ -146,6 +172,12 @@ const App = () => {
                 )}
               </div>
 
+              <div className="price">
+                <input type="text" id="price" placeholder="金額" />
+                <button><input type="button" value={"GO"} className="Go"
+                  onClick={() => calculatePrice()} /></button>
+              </div>
+
               <div className='quantity'>
                 <button>
                   <FontAwesomeIcon icon={faChevronLeft} onClick={() => handleQuantityDecrease(index)} />
@@ -156,11 +188,12 @@ const App = () => {
                 </button>
               </div>
 
+
             </div>
           ))}
-          <div className="item-container"></div>
         </div>
         <div className="total">Total: {totalItemCount}</div>
+        <div className="price">Price:{PriceCount}</div>
         <div className="btn">
           <input type="button" value="購入済みを削除" className="deletebtn" onClick={() => deleteTodo()} />
         </div>
