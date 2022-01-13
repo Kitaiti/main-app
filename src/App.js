@@ -28,6 +28,8 @@ const App = () => {
 
   const [PriceCount, setPriceCount] = useState(0);
 
+  const [Price, setPrice] = useState();
+
   window.document.onkeydown = function (event) {
     if (event.key === 'Enter') {
       handleAddButtonClick();
@@ -43,11 +45,20 @@ const App = () => {
   }
 
   const calculatePrice = () => {
+    const PriceCount = items.reduce((PriceCount, price) => {
+      return PriceCount + price.value;
+    }, 0);
+
+    console.log(PriceCount);
+    setPriceCount(PriceCount);
+  }
+
+  const deletePrice = () => {
     const pricearray = document.querySelectorAll("#price");
     console.log(pricearray);
     for (let i = 0; i < pricearray.length; i++) {
       const Pricecount = pricearray[i].value;
-      const Pricetotal = parseInt(Pricecount, 10) + PriceCount;
+      const Pricetotal = PriceCount - parseInt(Pricecount, 10);
       console.log(PriceCount, Pricecount);
       setPriceCount(Pricetotal);
     }
@@ -68,6 +79,7 @@ const App = () => {
     // 作られるitemの定義
     const newItem = {
       itemName: inputValue,
+      Price: Price,
       quantity: 0,
       isSelected: false,
     };
@@ -81,8 +93,14 @@ const App = () => {
     // 入力値を空に
     setInputValue("");
 
+    setPrice("");
+
     calculateTotal();
 
+    calculatePrice();
+
+
+    console.log(newItems);
   }
 
 
@@ -130,6 +148,7 @@ const App = () => {
     newItems[index].quantity++;
     setItems(newItems);
     calculateTotal();
+    calculatePrice();
   }
 
 
@@ -140,6 +159,7 @@ const App = () => {
     newItems[index].quantity--;
     setItems(newItems);
     calculateTotal();
+    deletePrice();
   }
 
 
@@ -153,6 +173,10 @@ const App = () => {
           <input value={inputValue}
             onChange={(event) => setInputValue(event.target.value)} className="add-item-input" placeholder="買うもの" />
           <FontAwesomeIcon icon={faPlus} onClick={() => handleAddButtonClick()} />
+          <div className="price">
+            <input type="text" id="price" placeholder="金額"
+              value={Price} onChange={(event) => setPrice(event.target.value)} />
+          </div>
         </div>
 
         <div className="item-list">
@@ -170,12 +194,6 @@ const App = () => {
                     <span>{item.itemName}</span>
                   </>
                 )}
-              </div>
-
-              <div className="price">
-                <input type="text" id="price" placeholder="金額" />
-                <button><input type="button" value={"GO"} className="Go"
-                  onClick={() => calculatePrice()} /></button>
               </div>
 
               <div className='quantity'>
