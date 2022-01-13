@@ -8,7 +8,6 @@ import {
   faChevronLeft,
   faChevronRight
 } from "@fortawesome/free-solid-svg-icons";
-import "./ogp"
 
 
 
@@ -43,7 +42,8 @@ const App = () => {
 
   const calculatePrice = () => {
     const PriceCount = items.reduce((total, item) => {
-      return total + parseInt(item.Price, 10);
+      return parseInt(item.Price, 10) + total;
+
     }, 0);
 
     console.log(PriceCount);
@@ -51,14 +51,12 @@ const App = () => {
   }
 
   const deletePrice = () => {
-    const pricearray = document.querySelectorAll("#price");
-    console.log(pricearray);
-    for (let i = 0; i < pricearray.length; i++) {
-      const Pricecount = pricearray[i].value;
-      const Pricetotal = PriceCount - parseInt(Pricecount, 10);
-      console.log(PriceCount, Pricecount);
-      setPriceCount(Pricetotal);
-    }
+    const PriceCount = items.reduce((total, item) => {
+      return parseInt(item.Price, 10) - total;
+    }, 0);
+
+    console.log(PriceCount);
+    setPriceCount(PriceCount);
   }
 
   const calculateTotal = () => {
