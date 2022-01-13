@@ -28,7 +28,7 @@ const App = () => {
 
   const [PriceCount, setPriceCount] = useState(0);
 
-  const [Price, setPrice] = useState();
+  const [Price, setPrice] = useState("");
 
   window.document.onkeydown = function (event) {
     if (event.key === 'Enter') {
@@ -40,9 +40,10 @@ const App = () => {
     }
   }
 
+
   const calculatePrice = () => {
-    const PriceCount = items.reduce((PriceCount, price) => {
-      return PriceCount + price.value;
+    const PriceCount = items.reduce((total, item) => {
+      return total + parseInt(item.Price, 10);
     }, 0);
 
     console.log(PriceCount);
@@ -190,6 +191,10 @@ const App = () => {
                     <span>{item.itemName}</span>
                   </>
                 )}
+              </div>
+
+              <div className="priceholder">
+                <span className="text">{item.Price}</span>
               </div>
 
               <div className='quantity'>

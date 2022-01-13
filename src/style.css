@@ -54,6 +54,16 @@ input[type="text"] {
   width: 100px;
 }
 
+.text {
+  align-items: center;
+  background-color: #fbc1bb;
+  border-radius: 10px;
+  color: #ec645b;
+  display: block;
+  font-size: 30px;
+  width: 100px;
+}
+
 .Go {
   background-color: #ec645b;
   color: #fff;
