@@ -32,10 +32,6 @@ const App = () => {
   window.document.onkeydown = function (event) {
     if (event.key === 'Enter') {
       handleAddButtonClick();
-    } else if (event.key === 'Tab') {
-      deleteTodo();
-    } else if (event.key === 'LightShift') {
-      handleQuantityIncrease();
     }
   }
 
