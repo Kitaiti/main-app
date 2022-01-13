@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 import "./style.css";
+import functions from 'firebase-functions';
+import axios from 'axios';
+import { JSDOM } from 'jsdom'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faPlus,
@@ -8,8 +11,6 @@ import {
   faChevronLeft,
   faChevronRight
 } from "@fortawesome/free-solid-svg-icons";
-
-
 
 
 const App = () => {
@@ -23,23 +24,18 @@ const App = () => {
 
   // 総量のuseStateを作る
   // 初期値は０
-  const [totalItemCount, setTotalItemCount] = useState(0);
+  const [totalItemCount, setTotalItemCount] = useState();
 
+
+  // priceの総量のuseState
   const [PriceCount, setPriceCount] = useState(0);
 
+  // 金額のuseState
   const [Price, setPrice] = useState("");
-
-  window.document.onkeydown = function (event) {
-    if (event.key === 'Enter') {
-      handleAddButtonClick();
-    }
-  }
-
 
   const calculatePrice = () => {
     const PriceCount = items.reduce((total, item) => {
-      return parseInt(item.Price, 10) + total;
-
+      return (parseInt(item.Price, 10) * item.quantity) + total;
     }, 0);
 
     console.log(PriceCount);
@@ -48,7 +44,7 @@ const App = () => {
 
   const deletePrice = () => {
     const PriceCount = items.reduce((total, item) => {
-      return parseInt(item.Price, 10) - total;
+      return (parseInt(item.Price, 10) * item.quantity) + total;
     }, 0);
 
     console.log(PriceCount);
@@ -57,7 +53,7 @@ const App = () => {
 
   const calculateTotal = () => {
     const totalItemCount = items.reduce((total, item) => {
-      return total + item.quantity;
+      return item.quantity + total;
     }, 0);
 
     console.log(totalItemCount);
@@ -91,6 +87,7 @@ const App = () => {
     calculatePrice();
 
 
+
     console.log(newItems);
   }
 
@@ -120,13 +117,24 @@ const App = () => {
     let compItem = totalItemCount;
     console.log(compItem);
 
+    let compPri = PriceCount
+    console.log(PriceCount);
+
     for (let i = 0; i < comp.length; i++) {
       let qua = comp[i].quantity;
       console.log(qua);
       compItem = compItem - qua;
       console.log(compItem);
       setTotalItemCount(compItem);
+
+      let pri = comp[i].Price * qua;
+      console.log(pri);
+      compPri = compPri - pri;
+      console.log(compPri);
+      setPriceCount(compPri);
     }
+
+
 
   }
 
