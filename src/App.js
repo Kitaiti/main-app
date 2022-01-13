@@ -40,10 +40,6 @@ const App = () => {
     }
   }
 
-  const getprice = () => {
-
-  }
-
   const calculatePrice = () => {
     const PriceCount = items.reduce((PriceCount, price) => {
       return PriceCount + price.value;
