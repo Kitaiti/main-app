@@ -1,8 +1,5 @@
 import React, { useState } from "react";
 import "./style.css";
-import functions from 'firebase-functions';
-import axios from 'axios';
-import { JSDOM } from 'jsdom'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faPlus,
