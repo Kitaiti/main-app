@@ -127,6 +127,12 @@ input:focus {
   margin-right: 5px;
 }
 
+.item-name span {
+  text-align: center;
+}
+
+
+
 .item-action-buttons {
   /* width: 30%; */
   display: flex;
@@ -152,6 +158,7 @@ input:focus {
   display: flex;
   font-size: 12px;
   justify-content: space-between;
+  width: 25%;
 }
 
 button {
