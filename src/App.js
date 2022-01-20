@@ -67,6 +67,10 @@ const App = () => {
       isSelected: false,
     };
 
+    if (Price === "") {
+      alert("金額を入力してください");
+    }
+
     // items配列にpushされる
     const newItems = [...items, newItem];
 
@@ -81,8 +85,6 @@ const App = () => {
     calculateTotal();
 
     calculatePrice();
-
-
 
     console.log(newItems);
   }

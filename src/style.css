@@ -92,6 +92,7 @@ input[type="text"] {
   border: none;
   box-sizing: border-box;
   color: #aa2b22;
+  font-size: 35px;
   height: 40px;
   width: 100%;
 }
