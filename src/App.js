@@ -8,7 +8,6 @@ import {
   faChevronLeft,
   faChevronRight
 } from "@fortawesome/free-solid-svg-icons";
-import Helmet from 'react-helmet';
 
 const App = () => {
   // itemsのuseStateを作る
