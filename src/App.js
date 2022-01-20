@@ -9,7 +9,6 @@ import {
   faChevronRight
 } from "@fortawesome/free-solid-svg-icons";
 
-
 const App = () => {
   // itemsのuseStateを作る
   // 初期状態は空のオブジェクト
@@ -130,9 +129,6 @@ const App = () => {
       console.log(compPri);
       setPriceCount(compPri);
     }
-
-
-
   }
 
 

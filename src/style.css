@@ -107,7 +107,6 @@ input:focus {
 .item-list {
   display: flex;
   flex-direction: column;
-  overflow-x: scroll;
 }
 
 .item-container {
@@ -152,7 +151,6 @@ input:focus {
   display: flex;
   font-size: 12px;
   justify-content: space-between;
-  min-width: 70px;
 }
 
 button {
