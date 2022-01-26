@@ -57,12 +57,36 @@ const App = () => {
     setTotalItemCount(totalItemCount);
   }
 
+  /**
+ * 全角から半角への変革関数
+ * 入力値の英数記号を半角変換して返却
+ * [引数]   strVal: 入力値
+ * [返却値] String(): 半角変換された文字列
+ */
+  function toHalfWidth(strVal) {
+    // 半角変換
+    var halfVal = strVal.replace(/[！-～]/g,
+      function (tmpStr) {
+        // 文字コードをシフト
+        return String.fromCharCode(tmpStr.charCodeAt(0) - 0xFEE0);
+      }
+    );
+
+    // 文字コードシフトで対応できない文字の変換
+    return halfVal.replace(/”/g, "\"")
+      .replace(/’/g, "'")
+      .replace(/‘/g, "`")
+      .replace(/￥/g, "\\")
+      .replace(/　/g, " ")
+      .replace(/〜/g, "~");
+  }
+
   // クリック時にitems配列に新しいitemを作る処理
   const handleAddButtonClick = () => {
     // 作られるitemの定義
     const newItem = {
       itemName: inputValue,
-      Price: Price,
+      Price: toHalfWidth(Price),
       quantity: 0,
       isSelected: false,
     };
@@ -213,6 +237,22 @@ const App = () => {
         <div className="btn">
           <input type="button" value="購入済みを削除" className="deletebtn" onClick={() => deleteTodo()} />
         </div>
+      </div>
+      <div className="explanation">
+        <ul className="explanation__list">
+          <li className="explanation__text">
+            購入したいものの名前と金額を入れ,プラスボタンを押す。
+          </li>
+          <li className="explanation__text">
+            右の矢印で買いたい個数を設定する。
+          </li>
+          <li className="explanation__text">
+            購入したら、左の丸ボタンにチェックを入れる。
+          </li>
+          <li className="explanation__text">
+            購入したものを消す場合は左下の削除ボタンを押す。
+          </li>
+        </ul>
       </div>
     </div >
   );

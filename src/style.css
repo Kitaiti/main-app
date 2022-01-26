@@ -130,6 +130,9 @@ input:focus {
 .item-name span {
   text-align: center;
 }
+.fa-plus {
+  cursor: pointer;
+}
 
 
 
@@ -187,7 +190,18 @@ button:hover {
 .deletebtn {
   background-color: #fff;
   border-radius: 12px;
+  cursor: pointer;
   font-size: 14px;
   font-weight: bold;
   padding: 1em;
+}
+
+.explanation {
+  color: #ec645b;
+}
+
+.explanation__text {
+  font-size: 20px;
+  font-weight: bold;
+  list-style-type: none;
 }
