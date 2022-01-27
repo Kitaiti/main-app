@@ -192,6 +192,22 @@ const App = () => {
 
   return (
     <div className="app-background" >
+      <div className="explanation">
+        <ul className="explanation__list">
+          <li className="explanation__text">
+            購入したいものの名前と金額を入れる。
+          </li>
+          <li className="explanation__text">
+            右の矢印で個数を設定する。
+          </li>
+          <li className="explanation__text">
+            購入したら、丸ボタンにチェックを入れる。
+          </li>
+          <li className="explanation__text">
+            購入したものを消す場合は左下の削除ボタンを押す。
+          </li>
+        </ul>
+      </div>
       <div className="main-container">
         <h2>買い物リスト</h2>
         <div className="add-item-box">
@@ -244,22 +260,6 @@ const App = () => {
         <div className="btn">
           <input type="button" value="購入済みを削除" className="deletebtn" onClick={() => deleteTodo()} />
         </div>
-      </div>
-      <div className="explanation">
-        <ul className="explanation__list">
-          <li className="explanation__text">
-            購入したいものの名前と金額を入れ,プラスボタンを押す。
-          </li>
-          <li className="explanation__text">
-            右の矢印で買いたい個数を設定する。
-          </li>
-          <li className="explanation__text">
-            購入したら、左の丸ボタンにチェックを入れる。
-          </li>
-          <li className="explanation__text">
-            購入したものを消す場合は左下の削除ボタンを押す。
-          </li>
-        </ul>
       </div>
     </div >
   );
