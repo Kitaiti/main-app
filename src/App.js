@@ -193,7 +193,7 @@ const App = () => {
   return (
     <div className="app-background" >
       <div className="explanation">
-        <ul className="explanation__list">
+        <ol className="explanation__list">
           <li className="explanation__text">
             購入したいものの名前と金額を入れる。
           </li>
@@ -206,7 +206,7 @@ const App = () => {
           <li className="explanation__text">
             購入したものを消す場合は左下の削除ボタンを押す。
           </li>
-        </ul>
+        </ol>
       </div>
       <div className="main-container">
         <h2>買い物リスト</h2>
