@@ -20,7 +20,6 @@ body {
 
 .app-background {
   align-items: center;
-  display: flex;
   justify-content: center;
   margin: 0 auto;
   margin: auto;
@@ -33,6 +32,9 @@ body {
   border-radius: 20px;
   box-shadow: 10px 10px 26px 0 rgba(0, 0, 0, 0.35);
   height: min-content;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20vh;
   padding: 20px;
   width: 500px;
 }
@@ -209,7 +211,8 @@ button:hover {
 }
 
 .explanation__list {
-  margin-left: 1vw;
+  margin-left: auto;
+  margin-right: auto;
   text-align: left;
-  width: 400px;
+  width: 500px;
 }
