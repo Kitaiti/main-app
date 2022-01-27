@@ -20,7 +20,7 @@ const App = () => {
 
   // 総量のuseStateを作る
   // 初期値は０
-  const [totalItemCount, setTotalItemCount] = useState();
+  const [totalItemCount, setTotalItemCount] = useState(0);
 
 
   // priceの総量のuseState
@@ -57,6 +57,15 @@ const App = () => {
     setTotalItemCount(totalItemCount);
   }
 
+  const countSum = () => {
+    const Countsum = items.reduce((total, item) => {
+      return item.quantity + total;
+    }, 1);
+
+    console.log(Countsum);
+    setTotalItemCount(Countsum);
+  }
+
   /**
  * 全角から半角への変革関数
  * 入力値の英数記号を半角変換して返却
@@ -87,13 +96,9 @@ const App = () => {
     const newItem = {
       itemName: inputValue,
       Price: toHalfWidth(Price),
-      quantity: 0,
+      quantity: 1,
       isSelected: false,
     };
-
-    if (Price === "") {
-      alert("金額を入力してください");
-    }
 
     // items配列にpushされる
     const newItems = [...items, newItem];
@@ -109,6 +114,8 @@ const App = () => {
     calculateTotal();
 
     calculatePrice();
+
+    countSum();
 
     console.log(newItems);
   }
