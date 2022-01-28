@@ -66,6 +66,15 @@ const App = () => {
     setTotalItemCount(Countsum);
   }
 
+  const priceSum = () => {
+    const Pricesum = items.reduce((total, item) => {
+      return (parseInt(item.Price, 10) * item.quantity) + total;
+    }, parseInt(Price));
+
+    setPriceCount(Pricesum);
+    console.log(Pricesum);
+  }
+
   /**
  * 全角から半角への変革関数
  * 入力値の英数記号を半角変換して返却
@@ -116,6 +125,8 @@ const App = () => {
     calculatePrice();
 
     countSum();
+
+    priceSum();
 
     console.log(newItems);
   }
