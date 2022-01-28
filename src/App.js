@@ -69,7 +69,7 @@ const App = () => {
   const priceSum = () => {
     const Pricesum = items.reduce((total, item) => {
       return (parseInt(item.Price, 10) * item.quantity) + total;
-    }, parseInt(Price));
+    }, parseInt(toHalfWidth(Price)));
 
     setPriceCount(Pricesum);
     console.log(Pricesum);
