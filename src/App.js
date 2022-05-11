@@ -38,6 +38,16 @@ const App = () => {
     setPriceCount(PriceCount);
   }
 
+  const zeroPrice = () => {
+    const Zeroprice = items.reduce((total, item) => {
+      return 0 + total;
+    }, 0);
+
+    console.log(Zeroprice);
+    setPriceCount(Zeroprice);
+  }
+
+
   const deletePrice = () => {
     const PriceCount = items.reduce((total, item) => {
       return (parseInt(item.Price, 10) * item.quantity) + total;
@@ -108,6 +118,10 @@ const App = () => {
       quantity: 1,
       isSelected: false,
     };
+
+    if (newItem.Price === "") {
+      zeroPrice();
+    }
 
     // items配列にpushされる
     const newItems = [...items, newItem];
